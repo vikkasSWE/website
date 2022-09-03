@@ -471,6 +471,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "eframe_template"
+version = "0.1.0"
+dependencies = [
+ "console_error_panic_hook",
+ "eframe",
+ "egui",
+ "serde",
+ "tracing-subscriber",
+ "tracing-wasm",
+]
+
+[[package]]
 name = "egui"
 version = "0.19.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1825,18 +1837,6 @@ dependencies = [
  "web-sys",
  "widestring",
  "winapi",
-]
-
-[[package]]
-name = "website"
-version = "0.1.0"
-dependencies = [
- "console_error_panic_hook",
- "eframe",
- "egui",
- "serde",
- "tracing-subscriber",
- "tracing-wasm",
 ]
 
 [[package]]

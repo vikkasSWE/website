@@ -1,7 +1,7 @@
 [package]
-name = "website"
+name = "eframe_template"
 version = "0.1.0"
-authors = ["Viktor Kasimir <kasimir.viktor@gmail.com>"]
+authors = ["Emil Ernerfeldt <emil.ernerfeldt@gmail.com>"]
 edition = "2021"
 rust-version = "1.60"
 
