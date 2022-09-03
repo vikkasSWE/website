@@ -6,4 +6,4 @@ wasm_opt = "version_105" # Windows system installed wasm_opt (version_106) break
 
 [serve]
 address = "127.0.0.1"
-port = 8090
+port = 8080
