@@ -10,7 +10,7 @@ fn main() {
     eframe::run_native(
         "website",
         native_options,
-        Box::new(|cc| Box::new(website::TemplateApp::new(cc))),
+        Box::new(|cc| Box::new(website::App::new(cc))),
     );
 }
 
@@ -25,7 +25,7 @@ fn main() {
     eframe::start_web(
         "the_canvas_id",
         web_options,
-        Box::new(|cc| Box::new(website::TemplateApp::new(cc))),
+        Box::new(|cc| Box::new(website::App::new(cc))),
     )
     .expect("failed to start eframe");
 }

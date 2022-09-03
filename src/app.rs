@@ -3,13 +3,13 @@ use std::time::Duration;
 /// We derive Deserialize/Serialize so we can persist app state on shutdown.
 #[derive(serde::Deserialize, serde::Serialize)]
 #[serde(default)]
-pub struct TemplateApp {
+pub struct App {
     label: String,
 
     value: f32,
 }
 
-impl Default for TemplateApp {
+impl Default for App {
     fn default() -> Self {
         Self {
             label: "Hello World!".to_owned(),
@@ -18,7 +18,7 @@ impl Default for TemplateApp {
     }
 }
 
-impl TemplateApp {
+impl App {
     pub fn new(cc: &eframe::CreationContext<'_>) -> Self {
         if let Some(storage) = cc.storage {
             return eframe::get_value(storage, eframe::APP_KEY).unwrap_or_default();
@@ -28,7 +28,7 @@ impl TemplateApp {
     }
 }
 
-impl eframe::App for TemplateApp {
+impl eframe::App for App {
     fn auto_save_interval(&self) -> Duration {
         Duration::from_secs(60)
     }
@@ -38,8 +38,6 @@ impl eframe::App for TemplateApp {
     }
 
     fn update(&mut self, ctx: &egui::Context, frame: &mut eframe::Frame) {
-        let Self { label, value } = self;
-
         egui::TopBottomPanel::top("top_panel").show(ctx, |ui| {
             egui::menu::bar(ui, |ui| {
                 ui.menu_button("File", |ui| {
@@ -51,6 +49,10 @@ impl eframe::App for TemplateApp {
                         self.save(frame.storage_mut().unwrap());
                     }
                 });
+
+                ui.horizontal(|ui| {
+                    egui::warn_if_debug_build(ui);
+                });
             });
         });
 
@@ -60,19 +62,13 @@ impl eframe::App for TemplateApp {
             ui.add(egui::Slider::new(&mut self.value, 0.0..=10.0).text("value"));
 
             ui.with_layout(egui::Layout::bottom_up(egui::Align::LEFT), |ui| {
-                ui.horizontal(|ui| {
-                    egui::warn_if_debug_build(ui);
-                });
+                // Add stuff to the bottom of the sidepanel
             });
         });
 
         egui::CentralPanel::default().show(ctx, |ui| {
-            ui.heading("eframe template");
-            ui.hyperlink("https://github.com/emilk/eframe_template");
-            ui.add(egui::github_link_file!(
-                "https://github.com/emilk/eframe_template/blob/master/",
-                "Source code."
-            ));
+            ui.heading("Viktor Kasimir wasm stuff");
+            ui.hyperlink("https://github.com/vikkasswe");
         });
     }
 }
