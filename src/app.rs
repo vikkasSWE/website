@@ -61,7 +61,7 @@ impl eframe::App for App {
 
             ui.add(egui::Slider::new(&mut self.value, 0.0..=10.0).text("value"));
 
-            ui.with_layout(egui::Layout::bottom_up(egui::Align::LEFT), |ui| {
+            ui.with_layout(egui::Layout::bottom_up(egui::Align::LEFT), |_ui| {
                 // Add stuff to the bottom of the sidepanel
             });
         });
