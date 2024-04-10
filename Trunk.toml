@@ -1,9 +1,0 @@
-[build]
-filehash = false
-
-[tools]
-wasm_opt = "version_105" # Windows system installed wasm_opt (version_106) breaks 'trunk build --release'... TODO(Viktor): Might only be my system??
-
-[serve]
-address = "127.0.0.1"
-port = 8080
